@@ -118,6 +118,7 @@ $(document).ready(function(){
 		var href = $(this).attr('href') || '';
 		
 		var isAuthRequired = text.includes('buy now') || 
+							 text.includes('add to cart') ||
 							 text.includes('book appointment') || 
 							 $(this).hasClass('buy_btn') || 
 							 href.includes('checkout.html') || 
@@ -154,51 +155,6 @@ $(document).ready(function(){
 	});
 
 });
-
-.ready(function(){
-    // Require login for Buy Now and Book Appointment buttons
-    body.on('click', 'a, button', function(e) {
-        var text = (.text() || '').trim().toLowerCase();
-        var href = .attr('href') || '';
-        
-        var isAuthRequired = text.includes('buy now') || 
-                             text.includes('book appointment') || 
-                             .hasClass('buy_btn') || 
-                             href.includes('checkout.html') || 
-                             href.includes('appointment.html');
-                             
-        // Allow logout links or actual login buttons to work
-        if (.hasClass('open-login-modal') || href.includes('#login-dialog') || href.includes('logout')) {
-            isAuthRequired = false;
-        }
-
-        if (isAuthRequired) {
-            var isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            if (!isLoggedIn) {
-                e.preventDefault();
-                // Check if magnificPopup is available
-                if ($.fn.magnificPopup) {
-                    $.magnificPopup.open({
-                        items: { src: '#login-dialog' },
-                        type: 'inline',
-                        fixedContentPos: false,
-                        fixedBgPos: true,
-                        overflowY: 'auto',
-                        closeBtnInside: true,
-                        preloader: false,
-                        midClick: true,
-                        removalDelay: 300,
-                        mainClass: 'my-mfp-zoom-in'
-                    });
-                } else {
-                    alert('Please login first to proceed.');
-                }
-                return false;
-            }
-        }
-    });
-});
-
 
 $(document).ready(function(){
     // Make home page slider image clickable to redirect to appointment page
