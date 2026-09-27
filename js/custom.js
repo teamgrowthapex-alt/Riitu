@@ -17,7 +17,7 @@ $(document).ready(function(){
 	});
 	/*Mobile Manu*/
 	$(".ast_menu_btn").click(function(){
-		$(".ast_menu").toggleClass("open");
+		$(".ast_main_menu_wrapper").toggleClass("ast_main_menu_hide");
 	});
 	/*Owl Carousl*/	
 	$(".ast_testimonials_slider .owl-carousel").owlCarousel({
