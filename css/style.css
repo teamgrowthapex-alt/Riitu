@@ -5912,10 +5912,7 @@ input::-ms-clear {
 
 @media (max-width: 991px) {
     .ast_top_header {
-        padding: 15px 0 !important;
-        background-color: #111111 !important;
-        float: left;
-        width: 100%;
+        display: none !important; /* Hide top header entirely on mobile as requested */
     }
     .ast_contact_details ul {
         display: flex !important;
@@ -5980,5 +5977,33 @@ input::-ms-clear {
         transform: translateY(-50%) !important;
         margin: 0 !important;
         right: 15px !important;
+    }
+}
+
+.mobile-only-header-items {
+    display: none !important;
+}
+@media (max-width: 991px) {
+    .mobile-only-header-items {
+        display: block !important;
+    }
+    .mobile-only-header-items li {
+        display: block !important;
+        float: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .mobile-only-header-items li a {
+        color: #fff !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+    .mobile-only-header-items li i {
+        color: #ff7700 !important;
+    }
+    /* Hide top header entirely */
+    .ast_top_header {
+        display: none !important;
     }
 }

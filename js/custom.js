@@ -180,3 +180,25 @@ window.togglePasswordVisibility = function(inputId, icon) {
     }
 };
 
+
+// Move top header items to mobile menu
+$(document).ready(function() {
+    if ($('.ast_menu').length && $('.ast_top_header').length) {
+        var $mobileItems = $('<li class="mobile-only-header-items" style="background: #111; padding: 15px 0;"></li>');
+        
+        var $contactInfo = $('.ast_contact_details ul').html();
+        var $authInfo = $('.ast_autho_wrapper > ul').html();
+        
+        if ($contactInfo) {
+            $mobileItems.append('<ul class="mobile-contact-list" style="display:flex; flex-direction:column; gap:10px; padding:0; margin:0 0 15px 0; list-style:none; text-align:center;">' + $contactInfo + '</ul>');
+        }
+        if ($authInfo) {
+            $mobileItems.append('<ul class="mobile-auth-list" style="display:flex; flex-direction:column; gap:15px; padding:0; margin:0; list-style:none; text-align:center;">' + $authInfo + '</ul>');
+        }
+        
+        // Only append if it doesn't already exist
+        if ($mobileItems.children().length > 0) {
+            $('.ast_menu > ul').append($mobileItems);
+        }
+    }
+});
