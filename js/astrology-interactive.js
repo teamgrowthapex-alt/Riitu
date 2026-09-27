@@ -1431,7 +1431,7 @@
             $progressBar.removeClass('active');
             $progressBar.eq(0).addClass('active');
             $progressBar.eq(1).addClass('active');
-
+            showToast("Billing details saved! Select payment method to complete order.", "success");
             showToast("✨ Billing details saved! Select payment method to complete order.", "success");
         });
 
@@ -1471,7 +1471,7 @@
             `).fadeIn();
 
             showToast("🎉 Order Placed Successfully! Saved to Firebase database.", "success");
-        });
+            showToast("Order Placed Successfully! Saved to Firebase database.", "success");
 
         // --- REAL-TIME WEBSITE BLOG COMMENTS ENGINE (NATIVE TEMPLATE + FIREBASE) ---
         function initLiveChatEngine() {
@@ -1569,13 +1569,13 @@
                     const res = await window.FirebaseHelper.saveChat({ name, email, message });
                     if (res.success) {
                         $msgInput.val('');
-                        showToast("✓ Comment posted successfully! Saved to Firebase.", "success");
+                        showToast("Comment posted successfully! Saved to Firebase.", "success");
                     } else {
                         showToast(`Could not post comment: ${res.error}`, "warning");
                     }
                 } else {
                     $msgInput.val('');
-                    showToast("✓ Comment posted successfully!", "success");
+                    showToast("Comment posted successfully!", "success");
                 }
             });
         }
