@@ -65,91 +65,122 @@
 
 .calc_tabs_nav {
 	clear: both;
-	float: left;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 15px;
-	margin-bottom: 40px;
+	gap: 12px;
+	margin-bottom: 45px;
 	flex-wrap: wrap;
 	position: relative;
 	z-index: 10;
+}
+.calc_tabs_nav_inner {
+	display: inline-flex;
+	background: rgba(123, 67, 151, 0.06);
+	padding: 8px;
+	border-radius: 40px;
+	gap: 8px;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 .calc_tab_btn {
 	float: none !important;
 	display: inline-flex !important;
 	align-items: center !important;
 	gap: 8px !important;
-	background: #ffffff;
-	border: 2px solid #e0d0eb;
-	color: #444;
+	background: transparent;
+	border: 1px solid transparent;
+	color: #666;
 	font-weight: 700;
 	padding: 14px 28px;
 	border-radius: 30px;
 	cursor: pointer;
 	font-size: 15px;
-	transition: all 0.3s ease;
-	box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.calc_tab_btn.active, .calc_tab_btn:hover {
+.calc_tab_btn:hover {
+	color: #570680;
+}
+.calc_tab_btn.active {
 	background: linear-gradient(135deg, #7b4397, #570680) !important;
 	color: #ffffff !important;
-	border-color: #7b4397 !important;
-	box-shadow: 0 6px 20px rgba(123,67,151,0.35) !important;
+	box-shadow: 0 8px 25px rgba(87, 6, 128, 0.35) !important;
+	transform: scale(1.02);
 }
 
 .calc_card_main {
 	background: #ffffff;
-	border-radius: 20px;
-	padding: 40px;
-	box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-	border: 1px solid #f0e6f5;
+	border-radius: 24px;
+	padding: 50px;
+	box-shadow: 0 20px 60px rgba(87, 6, 128, 0.08);
+	border: 1px solid rgba(123, 67, 151, 0.08);
 	margin-bottom: 50px;
+	position: relative;
+	overflow: hidden;
+}
+.calc_card_main::before {
+	content: '';
+	position: absolute;
+	top: 0; left: 0; width: 100%; height: 6px;
+	background: linear-gradient(90deg, #7b4397, #ff7700, #570680);
 }
 
 .form_label_custom {
-	font-weight: 700;
-	font-size: 13px;
+	font-weight: 800;
+	font-size: 12.5px;
 	text-transform: uppercase;
-	color: #570680;
-	letter-spacing: 0.5px;
-	margin-bottom: 8px;
-	display: block;
+	color: #444;
+	letter-spacing: 1px;
+	margin-bottom: 12px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.form_label_custom i {
+	color: #7b4397;
+	font-size: 14px;
 }
 .form_input_custom {
 	width: 100%;
-	height: 52px;
-	border: 2px solid #e0d0eb;
-	border-radius: 10px;
-	padding: 0 18px;
+	height: 56px;
+	background: #f8f9fa;
+	border: 2px solid #eaedf2;
+	border-radius: 14px;
+	padding: 0 20px;
 	font-size: 15px;
-	color: #333;
+	color: #111;
+	font-weight: 600;
 	outline: none;
 	transition: all 0.3s ease;
 }
 .form_input_custom:focus {
+	background: #ffffff;
 	border-color: #7b4397;
-	box-shadow: 0 0 0 4px rgba(123,67,151,0.1);
+	box-shadow: 0 0 0 4px rgba(123,67,151,0.12);
+}
+.form_input_custom::placeholder {
+	color: #aab2bd;
+	font-weight: 500;
 }
 
 .btn_calc_submit {
-	background: linear-gradient(45deg, #ff9800, #ff5722);
+	background: linear-gradient(135deg, #ff7700, #ff4500);
 	color: #ffffff;
 	font-weight: 800;
 	font-size: 16px;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 1.5px;
 	border: none;
-	padding: 15px 40px;
-	border-radius: 30px;
+	padding: 18px 45px;
+	border-radius: 40px;
 	cursor: pointer;
-	box-shadow: 0 6px 25px rgba(255,152,0,0.4);
-	transition: all 0.3s ease;
+	box-shadow: 0 10px 25px rgba(255, 119, 0, 0.3);
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .btn_calc_submit:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 10px 30px rgba(255,152,0,0.5);
+	transform: translateY(-3px) scale(1.02);
+	box-shadow: 0 15px 35px rgba(255, 119, 0, 0.45);
 }
 
 /* Lo Shu Grid Matrix */
@@ -389,9 +420,11 @@
 
 		<!-- Calculator Tab Selector -->
 		<div class="calc_tabs_nav">
-			<button class="calc_tab_btn active" onclick="switchCalcTab('numerology')"><i class="fa fa-calculator"></i> Numerology &amp; Life Path</button>
-			<button class="calc_tab_btn" onclick="switchCalcTab('loshu')"><i class="fa fa-th-large"></i> Lo Shu Grid Matrix</button>
-			<button class="calc_tab_btn" onclick="switchCalcTab('zodiac')"><i class="fa fa-sun-o"></i> Vedic Zodiac &amp; Element</button>
+			<div class="calc_tabs_nav_inner">
+				<button class="calc_tab_btn active" onclick="switchCalcTab('numerology')"><i class="fa fa-calculator"></i> Numerology &amp; Life Path</button>
+				<button class="calc_tab_btn" onclick="switchCalcTab('loshu')"><i class="fa fa-th-large"></i> Lo Shu Grid Matrix</button>
+				<button class="calc_tab_btn" onclick="switchCalcTab('zodiac')"><i class="fa fa-sun-o"></i> Vedic Zodiac &amp; Element</button>
+			</div>
 		</div>
 
 	<!-- TAB 1: NUMEROLOGY & LIFE PATH CALCULATOR -->
