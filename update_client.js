@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+const fs = require('fs');
+
+const currentHtml = fs.readFileSync('client-dashboard.html', 'utf8');
+
+const containerMatch = currentHtml.match(/<div class="container" style="margin-top: 30px; margin-bottom: 50px;">([\s\S]*?)<\/div>\s*<!-- Firebase/);
+
+if (!containerMatch) {
+    console.error('Could not parse container');
+    process.exit(1);
+}
+
+const contentBody = containerMatch[1];
+
+let newHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Client Portal - MindMitra Riitu</title>
@@ -365,164 +378,7 @@ body, html {
 		</div>
 
 		<!-- Original Content Starts Here -->
-		
-	
-	<!-- Welcome Banner -->
-	<div class="welcome_banner">
-		<div class="row align-items-center">
-			<div class="col-md-8">
-				<h2>Namaste, <span id="bannerClientName">Client</span> 🙏</h2>
-				<p>Welcome to your personal cosmic sanctuary. Here you can track your consultation appointments, payment history, and remedies prescribed by Advocate &amp; Master Numerologist Riitu Raghav.</p>
-			</div>
-			<div class="col-md-4 text-end" style="margin-top: 15px;">
-				<a href="appointment.html" style="background:#ffc107; color:#110826; font-weight:700; padding:12px 24px; border-radius:30px; text-decoration:none; display:inline-block; font-size:14px; box-shadow:0 4px 15px rgba(255,193,7,0.4);"><i class="fa fa-calendar-plus-o"></i> Book Consultation</a>
-			</div>
-		</div>
-	</div>
-
-	<!-- Stats Row -->
-	<div class="row" style="margin-bottom: 30px;">
-		<div class="col-md-3 col-6" style="margin-bottom: 15px;">
-			<div class="stat_box">
-				<div class="stat_num" id="statConsultations">1</div>
-				<div class="stat_title">Consultations</div>
-			</div>
-		</div>
-		<div class="col-md-3 col-6" style="margin-bottom: 15px;">
-			<div class="stat_box">
-				<div class="stat_num" id="statPayments">₹ 2,100</div>
-				<div class="stat_title">Total Payments</div>
-			</div>
-		</div>
-		<div class="col-md-3 col-6" style="margin-bottom: 15px;">
-			<div class="stat_box">
-				<div class="stat_num" id="statLifePath">7</div>
-				<div class="stat_title">Life Path Number</div>
-			</div>
-		</div>
-		<div class="col-md-3 col-6" style="margin-bottom: 15px;">
-			<div class="stat_box">
-				<div class="stat_num" id="statRemedies">3</div>
-				<div class="stat_title">Active Remedies</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<!-- Left Column: Personal Profile & Remedies -->
-		<div class="col-lg-5 col-md-12">
-			
-			<!-- My Profile Info -->
-			<div class="section_card">
-				<h3><i class="fa fa-user-circle" style="color:#ff7700;"></i> Personal Cosmic Profile</h3>
-				<div style="font-size: 14px; line-height: 2;">
-					<p style="margin-bottom: 6px;"><strong>Full Name:</strong> <span id="profileName">Client User</span></p>
-					<p style="margin-bottom: 6px;"><strong>Mobile Number:</strong> <span id="profileMobile">+91 98765 43210</span></p>
-					<p style="margin-bottom: 6px;"><strong>Email:</strong> <span id="profileEmail">client@gmail.com</span></p>
-					<p style="margin-bottom: 6px;"><strong>Consultation Status:</strong> <span class="badge_status badge_confirmed">Active Member</span></p>
-				</div>
-			</div>
-
-			<!-- Prescribed Remedies -->
-			<div class="section_card">
-				<h3><i class="fa fa-magic" style="color:#ff7700;"></i> Prescribed Remedies by Riitu Ma'am</h3>
-				
-				<div id="clientRemediesContainer">
-					<div class="remedy_box">
-						<h5>✨ Signature &amp; Name Spelling Correction</h5>
-						<p style="font-size: 13px; margin: 0; color: #555;">Add an extra letter 'I' in your professional signature to align with compound frequency 37 for business success.</p>
-					</div>
-
-					<div class="remedy_box">
-						<h5>🔮 Lo-Shu Grid Missing Number 5 Remedy</h5>
-						<p style="font-size: 13px; margin: 0; color: #555;">Wear a green aventurine bracelet on Wednesday morning after morning sun prayers to balance Earth element stability.</p>
-					</div>
-
-					<div class="remedy_box">
-						<h5>🏠 Vastu Zone Energy Correction</h5>
-						<p style="font-size: 13px; margin: 0; color: #555;">Place a brass sun on the East wall of your home office to amplify career growth and authority recognition.</p>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<!-- Right Column: Consultations & Payment History -->
-		<div class="col-lg-7 col-md-12">
-			
-			<!-- Booked Consultations -->
-			<div class="section_card">
-				<h3>
-					<span><i class="fa fa-calendar" style="color:#ff7700;"></i> My Consultations</span>
-					<a href="appointment.html" style="font-size: 12px; color: #ff7700; font-weight: 700; text-decoration: none;">+ Book New</a>
-				</h3>
-
-				<div class="table-responsive">
-					<table class="table table-hover align-middle" style="font-size: 13.5px;">
-						<thead style="background: #faf5fc;">
-							<tr>
-								<th>Date &amp; Time</th>
-								<th>Service Type</th>
-								<th>Mode</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody id="consultationTableBody">
-							<!-- Dynamic Consultations -->
-						</tbody>
-					</table>
-				</div>
-			</div>
-
-			<!-- Digital Downloads / E-Books -->
-			<div class="section_card">
-				<h3><i class="fa fa-download" style="color:#ff7700;"></i> My Digital Downloads (E-Books & Reports)</h3>
-
-				<div class="table-responsive">
-					<table class="table table-hover align-middle" style="font-size: 13.5px;">
-						<thead style="background: #faf5fc;">
-							<tr>
-								<th>Product Name</th>
-								<th>Date Purchased</th>
-								<th>Access</th>
-							</tr>
-						</thead>
-						<tbody id="clientDownloadsTableBody">
-							<!-- Dynamic Downloads -->
-							<tr>
-								<td colspan="3" class="text-center text-muted py-3">Loading your digital content...</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-
-			<!-- Payment & Transaction Records -->
-			<div class="section_card">
-				<h3><i class="fa fa-credit-card" style="color:#ff7700;"></i> Payment History</h3>
-
-				<div class="table-responsive">
-					<table class="table table-hover align-middle" style="font-size: 13.5px;">
-						<thead style="background: #faf5fc;">
-							<tr>
-								<th>Txn ID</th>
-								<th>Description</th>
-								<th>Amount</th>
-								<th>Date</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody id="clientOrdersTableBody">
-							<!-- Dynamic Payments -->
-						</tbody>
-					</table>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-
+		${contentBody.replace(/#7b4397/g, '#ff7700').replace(/style="color:#7b4397;"/g, 'style="color:#ff7700;"')}
 		<!-- Original Content Ends Here -->
 
 	</main>
@@ -546,4 +402,7 @@ $(document).ready(function() {
 });
 </script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync('client-dashboard.html', newHtml);
+console.log('Client dashboard updated to match admin portal layout and website theme.');
