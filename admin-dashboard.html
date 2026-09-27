@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Admin Portal - MindMitra Riitu</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Style Links -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/fonts.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/png" href="images/header/favicon.png">
+
+<style>
+body, html {
+	height: 100%;
+	margin: 0;
+	background-color: #f4f5f9;
+	font-family: 'Poppins', sans-serif;
+	color: #333;
+}
+
+.admin_layout_wrapper {
+	display: flex;
+	min-height: 100vh;
+	width: 100%;
+}
+
+/* Left Sidebar Navigation */
+.admin_sidebar {
+	width: 280px;
+	flex-shrink: 0;
+	background: linear-gradient(180deg, #130726 0%, #260945 100%);
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 4px 0 25px rgba(0,0,0,0.15);
+	z-index: 100;
+	position: sticky;
+	top: 0;
+	height: 100vh;
+}
+
+.sidebar_brand {
+	padding: 24px 20px;
+	border-bottom: 1px solid rgba(255,255,255,0.08);
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+.sidebar_brand i {
+	font-size: 26px;
+	color: #ffda79;
+	background: rgba(255,218,121,0.15);
+	padding: 10px;
+	border-radius: 12px;
+}
+.sidebar_brand h4 {
+	font-size: 16px;
+	font-weight: 700;
+	margin: 0;
+	color: #ffffff;
+}
+.sidebar_brand span {
+	font-size: 11px;
+	color: #bfaed8;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.sidebar_menu {
+	list-style: none;
+	padding: 20px 14px;
+	margin: 0;
+	flex-grow: 1;
+	overflow-y: auto;
+}
+.sidebar_menu .menu_item {
+	margin-bottom: 6px;
+}
+.sidebar_menu .menu_link {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 12px 18px;
+	color: #d1c4e9;
+	font-size: 13.5px;
+	font-weight: 600;
+	border-radius: 12px;
+	text-decoration: none;
+	transition: all 0.25s ease;
+	border: 1px solid transparent;
+}
+.sidebar_menu .menu_link:hover {
+	color: #ffffff;
+	background: rgba(255,255,255,0.08);
+}
+.sidebar_menu .menu_link.active {
+	background: linear-gradient(135deg, #7b4397, #570680) !important;
+	color: #ffffff !important;
+	font-weight: 700;
+	box-shadow: 0 4px 18px rgba(123, 67, 151, 0.4);
+	border-color: rgba(255,218,121,0.3);
+}
+.sidebar_menu .menu_link i {
+	font-size: 16px;
+	width: 20px;
+	text-align: center;
+}
+
+.sidebar_footer {
+	padding: 20px;
+	border-top: 1px solid rgba(255,255,255,0.08);
+	background: rgba(0,0,0,0.15);
+}
+.admin_profile_box {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 14px;
+}
+.admin_profile_box i {
+	font-size: 32px;
+	color: #ffda79;
+}
+.admin_profile_box div strong {
+	display: block;
+	font-size: 13px;
+	color: #fff;
+}
+.admin_profile_box div small {
+	font-size: 11px;
+	color: #aaa;
+}
+
+.sidebar_btns {
+	display: flex;
+	gap: 8px;
+}
+.btn_side_site {
+	flex: 1;
+	background: rgba(255,255,255,0.1);
+	color: #fff;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 600;
+	padding: 8px 10px;
+	border-radius: 8px;
+	text-align: center;
+	transition: all 0.2s;
+}
+.btn_side_site:hover {
+	background: rgba(255,255,255,0.2);
+	color: #fff;
+}
+.btn_side_logout {
+	flex: 1;
+	background: #ff7700;
+	color: #fff;
+	border: none;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 8px 10px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+.btn_side_logout:hover {
+	background: #e66a00;
+}
+
+/* Right Main Content Area */
+.admin_main_area {
+	flex-grow: 1;
+	padding: 30px;
+	overflow-y: auto;
+}
+
+.top_header_bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 15px;
+	margin-bottom: 30px;
+}
+.top_header_bar h2 {
+	font-size: 24px;
+	font-weight: 800;
+	color: #111;
+	margin: 0;
+}
+
+.live_sync_tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: #e8f5e9;
+	color: #2e7d32;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 6px 14px;
+	border-radius: 20px;
+	border: 1px solid #c8e6c9;
+}
+.pulse_dot {
+	width: 8px;
+	height: 8px;
+	background: #2e7d32;
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7);
+	animation: pulse_green 1.5s infinite;
+}
+@keyframes pulse_green {
+	0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7); }
+	70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(46, 125, 50, 0); }
+	100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+}
+
+/* Stat Cards Row */
+.stat_card_modern {
+	background: #ffffff;
+	border-radius: 16px;
+	padding: 22px;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	border: 1px solid #eaeaea;
+	transition: transform 0.25s ease;
+}
+.stat_card_modern:hover {
+	transform: translateY(-4px);
+}
+.stat_card_icon {
+	width: 54px;
+	height: 54px;
+	border-radius: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	flex-shrink: 0;
+}
+.icon_clients { background: #fff3e0; color: #ff9800; }
+.icon_revenue { background: #e8f5e9; color: #4caf50; }
+.icon_consultations { background: #f3e5f5; color: #9c27b0; }
+.icon_products { background: #e3f2fd; color: #2196f3; }
+
+.stat_card_val {
+	font-size: 26px;
+	font-weight: 800;
+	color: #111;
+	line-height: 1.2;
+}
+.stat_card_lbl {
+	font-size: 12.5px;
+	color: #666;
+	font-weight: 600;
+	text-transform: uppercase;
+	margin-top: 2px;
+}
+
+/* Content Container */
+.admin_content_card {
+	background: #ffffff;
+	border-radius: 16px;
+	padding: 28px;
+	box-shadow: 0 6px 25px rgba(0,0,0,0.05);
+	border: 1px solid #eaeaea;
+}
+
+.table_custom {
+	font-size: 13.5px;
+}
+.badge_tag {
+	padding: 4px 12px;
+	border-radius: 20px;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.tag_green { background: #e8f5e9; color: #2e7d32; }
+.tag_orange { background: #fff3e0; color: #e65100; }
+.tag_purple { background: #f3e5f5; color: #7b1fa2; }
+
+@media (max-width: 991px) {
+	.admin_layout_wrapper {
+		flex-direction: column;
+	}
+	.admin_sidebar {
+		width: 100%;
+		height: auto;
+		position: relative;
+	}
+	.sidebar_menu {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+}
+</style>
+</head>
+<body>
+
+<div class="admin_layout_wrapper">
+	
+	<!-- LEFT SIDEBAR NAVIGATION -->
+	<aside class="admin_sidebar">
+		<div class="sidebar_brand">
+			<i class="fa fa-shield"></i>
+			<div>
+				<h4>MindMitra Riitu</h4>
+				<span>Admin Control Portal</span>
+			</div>
+		</div>
+
+		<ul class="sidebar_menu nav nav-tabs" id="adminTab" role="tablist" style="border:none;">
+			<li class="menu_item nav-item">
+				<a class="menu_link nav-link active" id="clients-tab" data-bs-toggle="tab" data-bs-target="#clients" href="javascript:;">
+					<i class="fa fa-users"></i> <span>Client Directory</span>
+				</a>
+			</li>
+			<li class="menu_item nav-item">
+				<a class="menu_link nav-link" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" href="javascript:;">
+					<i class="fa fa-shopping-bag"></i> <span>Manage Shop Products</span>
+				</a>
+			</li>
+			<li class="menu_item nav-item">
+				<a class="menu_link nav-link" id="payments-tab" data-bs-toggle="tab" data-bs-target="#payments" href="javascript:;">
+					<i class="fa fa-money"></i> <span>Payments &amp; Orders</span>
+				</a>
+			</li>
+			<li class="menu_item nav-item">
+				<a class="menu_link nav-link" id="appointments-tab" data-bs-toggle="tab" data-bs-target="#appointments" href="javascript:;">
+					<i class="fa fa-calendar-check-o"></i> <span>Appointments</span>
+				</a>
+			</li>
+			<li class="menu_item nav-item">
+				<a class="menu_link nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" href="javascript:;">
+					<i class="fa fa-envelope"></i> <span>Messages &amp; Enquiries</span>
+				</a>
+			</li>
+			<li class="menu_item nav-item">
+				<a class="menu_link nav-link" id="remedies-tab" data-bs-toggle="tab" data-bs-target="#remedies" href="javascript:;">
+					<i class="fa fa-pencil-square-o"></i> <span>Add Remedy / Notes</span>
+				</a>
+			</li>
+		</ul>
+
+		<div class="sidebar_footer">
+			<div class="admin_profile_box">
+				<i class="fa fa-user-circle"></i>
+				<div>
+					<strong>Advocate Riitu Raghav</strong>
+					<small>Master Administrator</small>
+				</div>
+			</div>
+			<div class="sidebar_btns">
+				<a href="index.html" class="btn_side_site"><i class="fa fa-globe"></i> Website</a>
+				<button onclick="handleAdminLogout()" class="btn_side_logout"><i class="fa fa-sign-out"></i> Logout</button>
+			</div>
+		</div>
+	</aside>
+
+	<!-- RIGHT MAIN CONTENT AREA -->
+	<main class="admin_main_area">
+		
+		<!-- Top Bar -->
+		<div class="top_header_bar">
+			<div>
+				<h2>Overview &amp; Management</h2>
+			</div>
+			<div style="display: flex; align-items: center; gap: 15px;">
+				<div style="position: relative; width: 280px;">
+					<input type="text" id="adminSearchInput" onkeyup="filterClientTable()" placeholder="Search clients, orders, products..." style="width: 100%; padding: 8px 16px 8px 36px; border-radius: 25px; border: 1px solid #ccc; font-size: 13px; outline: none;">
+					<i class="fa fa-search" style="position: absolute; left: 14px; top: 10px; color: #888;"></i>
+				</div>
+				<span class="live_sync_tag"><span class="pulse_dot"></span> Firebase Live Sync Active</span>
+			</div>
+		</div>
+
+		<!-- Stat Cards Grid -->
+		<div class="row" style="margin-bottom: 25px;">
+			<div class="col-xl-3 col-md-6 col-12" style="margin-bottom: 15px;">
+				<div class="stat_card_modern">
+					<div class="stat_card_icon icon_clients"><i class="fa fa-users"></i></div>
+					<div>
+						<div class="stat_card_val" id="adminTotalClients">0</div>
+						<div class="stat_card_lbl">Registered Clients</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-md-6 col-12" style="margin-bottom: 15px;">
+				<div class="stat_card_modern">
+					<div class="stat_card_icon icon_revenue"><i class="fa fa-inr"></i></div>
+					<div>
+						<div class="stat_card_val" id="adminTotalRevenue">₹ 0</div>
+						<div class="stat_card_lbl">Revenue Collected</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-md-6 col-12" style="margin-bottom: 15px;">
+				<div class="stat_card_modern">
+					<div class="stat_card_icon icon_consultations"><i class="fa fa-calendar-check-o"></i></div>
+					<div>
+						<div class="stat_card_val" id="adminTotalConsultations">0</div>
+						<div class="stat_card_lbl">Consultations Completed</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xl-3 col-md-6 col-12" style="margin-bottom: 15px;">
+				<div class="stat_card_modern">
+					<div class="stat_card_icon icon_products"><i class="fa fa-shopping-bag"></i></div>
+					<div>
+						<div class="stat_card_val" id="adminTotalProducts">0</div>
+						<div class="stat_card_lbl">Active Shop Products</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Dynamic Content Card -->
+		<div class="admin_content_card">
+			
+			<div class="tab-content" id="adminTabContent">
+				
+				<!-- Tab 1: Clients List -->
+				<div class="tab-pane fade show active" id="clients" role="tabpanel">
+					<h4 style="font-size: 18px; font-weight: 700; color: #111; margin-bottom: 20px;"><i class="fa fa-users" style="color: #7b4397;"></i> Client Directory</h4>
+					<div class="table-responsive">
+						<table class="table table-hover align-middle table_custom" id="clientTable">
+							<thead style="background: #faf5fc;">
+								<tr>
+									<th>#</th>
+									<th>Client Name</th>
+									<th>Mobile Number</th>
+									<th>Email</th>
+									<th>DOB / Details</th>
+									<th>Registered / Status</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody id="adminClientList">
+								<!-- Dynamic Clients -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Tab 2: Manage Shop Products -->
+				<div class="tab-pane fade" id="products" role="tabpanel">
+					<div class="row">
+						<!-- Left: Add New Product Form -->
+						<div class="col-lg-5 col-md-12" style="margin-bottom: 25px;">
+							<div style="background: #faf5fc; padding: 22px; border-radius: 14px; border: 1px solid #e0d0eb;">
+								<h5 style="color: #7b4397; font-weight: 700; margin-bottom: 16px;"><i class="fa fa-plus-circle"></i> Add New Product to Shop</h5>
+								<form id="addProductAdminForm">
+									<div class="mb-3">
+										<label style="font-weight: 600; font-size: 13px;">Product Title*</label>
+										<input type="text" id="prodTitle" class="form-control" placeholder="e.g. Chaldean Numerology Master E-Book" required>
+									</div>
+									<div class="row">
+										<div class="col-6 mb-3">
+											<label style="font-weight: 600; font-size: 13px;">Price (₹)*</label>
+											<input type="number" id="prodPrice" class="form-control" placeholder="199" required>
+										</div>
+										<div class="col-6 mb-3">
+											<label style="font-weight: 600; font-size: 13px;">Original Price (₹)</label>
+											<input type="number" id="prodOrigPrice" class="form-control" placeholder="499">
+										</div>
+									</div>
+									<div class="mb-3">
+										<label style="font-weight: 600; font-size: 13px;">Category</label>
+										<select id="prodCategory" class="form-select">
+											<option value="ebooks">E-Books &amp; Guides</option>
+											<option value="gemstones">Gemstones &amp; Crystals</option>
+											<option value="remedies">Rudraksha &amp; Spiritual Remedies</option>
+											<option value="yantras">Yantras &amp; Pyramids</option>
+											<option value="Numerology & Name Alignment">Numerology &amp; Name Alignment</option>
+											<option value="Vedic Astrology & Vastu">Vedic Astrology &amp; Vastu</option>
+										</select>
+									</div>
+									<div class="mb-3">
+										<label style="font-weight: 600; font-size: 13px;">Image URL</label>
+										<input type="text" id="prodImg" class="form-control" placeholder="images/header/astrology_numerology_transparent.png" value="images/header/astrology_numerology_transparent.png">
+									</div>
+									<div class="mb-3">
+										<label style="font-weight: 600; font-size: 13px;">Short Description</label>
+										<textarea id="prodDesc" class="form-control" rows="3" placeholder="Brief description of the product or E-Book..."></textarea>
+									</div>
+									<button type="submit" style="background: linear-gradient(135deg, #7b4397, #570680); color: #fff; font-weight: 700; border: none; padding: 11px 24px; border-radius: 25px; width: 100%; box-shadow: 0 4px 15px rgba(123,67,151,0.3);">Publish Product</button>
+								</form>
+							</div>
+						</div>
+
+						<!-- Right: Product Inventory Table -->
+						<div class="col-lg-7 col-md-12">
+							<h5 style="color: #111; font-weight: 700; margin-bottom: 16px;"><i class="fa fa-shopping-bag" style="color: #7b4397;"></i> Active Inventory</h5>
+							<div class="table-responsive">
+								<table class="table table-hover align-middle table_custom">
+									<thead style="background: #faf5fc;">
+										<tr>
+											<th>Image</th>
+											<th>Product Title</th>
+											<th>Price</th>
+											<th>Category</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody id="adminProductsList">
+										<!-- Dynamic Products -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tab 3: Payments Ledger -->
+				<div class="tab-pane fade" id="payments" role="tabpanel">
+					<h4 style="font-size: 18px; font-weight: 700; color: #111; margin-bottom: 20px;"><i class="fa fa-money" style="color: #7b4397;"></i> Payments &amp; Transaction Ledger</h4>
+					<div class="table-responsive">
+						<table class="table table-hover align-middle table_custom">
+							<thead style="background: #faf5fc;">
+								<tr>
+									<th>Txn ID</th>
+									<th>Client Name</th>
+									<th>Service / Item</th>
+									<th>Payment Method</th>
+									<th>Amount (INR)</th>
+									<th>Date</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody id="adminOrdersList">
+								<!-- Dynamic Orders -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Tab 4: Appointments Management -->
+				<div class="tab-pane fade" id="appointments" role="tabpanel">
+					<h4 style="font-size: 18px; font-weight: 700; color: #111; margin-bottom: 20px;"><i class="fa fa-calendar-check-o" style="color: #7b4397;"></i> Consultation Appointments</h4>
+					<div class="table-responsive">
+						<table class="table table-hover align-middle table_custom">
+							<thead style="background: #faf5fc;">
+								<tr>
+									<th>Booking ID</th>
+									<th>Client Name</th>
+									<th>Phone</th>
+									<th>Meeting Mode</th>
+									<th>Scheduled Date/Time</th>
+									<th>Status</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody id="adminAppointmentsList">
+								<!-- Dynamic Appointments -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Tab 5: Messages & Enquiries -->
+				<div class="tab-pane fade" id="messages" role="tabpanel">
+					<h4 style="font-size: 18px; font-weight: 700; color: #111; margin-bottom: 20px;"><i class="fa fa-envelope" style="color: #7b4397;"></i> User Messages &amp; Enquiries</h4>
+					<div class="table-responsive">
+						<table class="table table-hover align-middle table_custom">
+							<thead style="background: #faf5fc;">
+								<tr>
+									<th>Sender Name</th>
+									<th>Email</th>
+									<th>Subject</th>
+									<th>Message Content</th>
+									<th>Received Date</th>
+								</tr>
+							</thead>
+							<tbody id="adminMessagesList">
+								<!-- Dynamic Messages -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- Tab 6: Add Remedy / Notes -->
+				<div class="tab-pane fade" id="remedies" role="tabpanel">
+					<div style="max-width: 600px; margin: 0 auto; background: #faf5fc; padding: 25px; border-radius: 14px; border: 1px solid #e0d0eb;">
+						<h4 style="color: #570680; font-weight: 700; margin-bottom: 18px;">Issue Personal Remedy / Cosmic Note</h4>
+						<form id="remedyFormAdmin">
+							<div class="mb-3">
+								<label style="font-weight: 600; font-size: 13px;">Select Client</label>
+								<select id="remedyClientSelect" class="form-select" required>
+									<option value="">-- Choose Client --</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label style="font-weight: 600; font-size: 13px;">Remedy Title</label>
+								<input type="text" id="remedyTitle" class="form-control" placeholder="e.g. Signature &amp; Name Spelling Correction" required>
+							</div>
+							<div class="mb-3">
+								<label style="font-weight: 600; font-size: 13px;">Remedy Instructions &amp; Vastu Notes</label>
+								<textarea id="remedyDesc" class="form-control" rows="4" placeholder="Enter detailed remedies prescribed by Riitu Ma'am..." required></textarea>
+							</div>
+							<button type="submit" style="background:#570680; color:#fff; font-weight:700; border:none; padding:11px 24px; border-radius:25px; width:100%; box-shadow:0 4px 15px rgba(87,6,128,0.3);">Publish Remedy to Client Dashboard</button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</main>
+
+</div>
+
+<!-- Firebase & Bootstrap Scripts -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/firebase-config.js?v=10"></script>
+<script type="text/javascript" src="js/astrology-interactive.js?v=10"></script>
+<script type="text/javascript" src="js/dashboards.js?v=10"></script>
+<script>
+function filterClientTable() {
+    const input = document.getElementById('adminSearchInput').value.toLowerCase();
+    const rows = document.querySelectorAll('#adminClientList tr, #adminOrdersList tr, #adminAppointmentsList tr, #adminProductsList tr');
+    rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(input) ? '' : 'none';
+    });
+}
+$(document).ready(function() {
+    if (window.initAdminDashboard) {
+        window.initAdminDashboard();
+    }
+});
+</script>
+</body>
+</html>

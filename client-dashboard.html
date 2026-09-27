@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Client Portal - MindMitra Riitu</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Style Links -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/fonts.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/png" href="images/header/favicon.png">
+
+<style>
+body {
+	background-color: #f4f5f8;
+	font-family: 'Poppins', sans-serif;
+	color: #333;
+}
+.client_navbar {
+	background: linear-gradient(135deg, #44006b 0%, #570680 100%);
+	padding: 15px 0;
+	color: #fff;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+.client_navbar .logo_text {
+	font-size: 22px;
+	font-weight: 700;
+	color: #ffda79;
+	text-decoration: none;
+}
+.client_profile_card {
+	background: #ffffff;
+	border-radius: 16px;
+	padding: 30px;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+	margin-bottom: 30px;
+}
+.welcome_banner {
+	background: linear-gradient(135deg, #1e0938 0%, #3d1266 100%);
+	color: #fff;
+	border-radius: 16px;
+	padding: 30px;
+	margin-bottom: 30px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 8px 25px rgba(68,0,107,0.2);
+}
+.welcome_banner h2 {
+	color: #ffc107;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+.welcome_banner p {
+	color: #d1c4e9;
+	margin: 0;
+}
+.stat_box {
+	background: #ffffff;
+	border-radius: 12px;
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+	border: 1px solid #eee;
+}
+.stat_box .stat_num {
+	font-size: 24px;
+	font-weight: 800;
+	color: #7b4397;
+}
+.stat_box .stat_title {
+	font-size: 13px;
+	color: #666;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+.section_card {
+	background: #ffffff;
+	border-radius: 16px;
+	padding: 25px 30px;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+	margin-bottom: 30px;
+}
+.section_card h3 {
+	font-size: 20px;
+	font-weight: 700;
+	color: #111;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #f0f0f0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.badge_status {
+	padding: 5px 12px;
+	border-radius: 20px;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.badge_confirmed { background: #e8f5e9; color: #2e7d32; }
+.badge_pending { background: #fff8e1; color: #f57f17; }
+.badge_paid { background: #e3f2fd; color: #1565c0; }
+.remedy_box {
+	background: #faf5fc;
+	border-left: 4px solid #7b4397;
+	padding: 16px 20px;
+	border-radius: 8px;
+	margin-bottom: 15px;
+}
+.remedy_box h5 {
+	color: #7b4397;
+	font-weight: 700;
+	margin-bottom: 6px;
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+
+<!-- Client Navbar -->
+<header class="client_navbar">
+	<div class="container">
+		<div class="d-flex align-items-center justify-content-between">
+			<a href="index.html" class="logo_text"><i class="fa fa-star" style="color:#ffc107;"></i> MindMitra Riitu Client Portal</a>
+			<div class="d-flex align-items-center gap-3">
+				<span id="navClientName" style="font-size: 14px; font-weight: 600;">Welcome, Client</span>
+				<a href="index.html" style="color:#fff; text-decoration:none; background:rgba(255,255,255,0.15); padding:6px 16px; border-radius:20px; font-size:13px; font-weight:600;"><i class="fa fa-home"></i> Home</a>
+				<button onclick="handleLogout()" style="background:#ff7700; color:#fff; border:none; padding:6px 18px; border-radius:20px; font-size:13px; font-weight:700; cursor:pointer;"><i class="fa fa-sign-out"></i> Logout</button>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="container" style="margin-top: 30px; margin-bottom: 50px;">
+	
+	<!-- Welcome Banner -->
+	<div class="welcome_banner">
+		<div class="row align-items-center">
+			<div class="col-md-8">
+				<h2>Namaste, <span id="bannerClientName">Client</span> 🙏</h2>
+				<p>Welcome to your personal cosmic sanctuary. Here you can track your consultation appointments, payment history, and remedies prescribed by Advocate &amp; Master Numerologist Riitu Raghav.</p>
+			</div>
+			<div class="col-md-4 text-end" style="margin-top: 15px;">
+				<a href="appointment.html" style="background:#ffc107; color:#110826; font-weight:700; padding:12px 24px; border-radius:30px; text-decoration:none; display:inline-block; font-size:14px; box-shadow:0 4px 15px rgba(255,193,7,0.4);"><i class="fa fa-calendar-plus-o"></i> Book Consultation</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Stats Row -->
+	<div class="row" style="margin-bottom: 30px;">
+		<div class="col-md-3 col-6" style="margin-bottom: 15px;">
+			<div class="stat_box">
+				<div class="stat_num" id="statConsultations">1</div>
+				<div class="stat_title">Consultations</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-6" style="margin-bottom: 15px;">
+			<div class="stat_box">
+				<div class="stat_num" id="statPayments">₹ 2,100</div>
+				<div class="stat_title">Total Payments</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-6" style="margin-bottom: 15px;">
+			<div class="stat_box">
+				<div class="stat_num" id="statLifePath">7</div>
+				<div class="stat_title">Life Path Number</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-6" style="margin-bottom: 15px;">
+			<div class="stat_box">
+				<div class="stat_num" id="statRemedies">3</div>
+				<div class="stat_title">Active Remedies</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<!-- Left Column: Personal Profile & Remedies -->
+		<div class="col-lg-5 col-md-12">
+			
+			<!-- My Profile Info -->
+			<div class="section_card">
+				<h3><i class="fa fa-user-circle" style="color:#7b4397;"></i> Personal Cosmic Profile</h3>
+				<div style="font-size: 14px; line-height: 2;">
+					<p style="margin-bottom: 6px;"><strong>Full Name:</strong> <span id="profileName">Client User</span></p>
+					<p style="margin-bottom: 6px;"><strong>Mobile Number:</strong> <span id="profileMobile">+91 98765 43210</span></p>
+					<p style="margin-bottom: 6px;"><strong>Email:</strong> <span id="profileEmail">client@gmail.com</span></p>
+					<p style="margin-bottom: 6px;"><strong>Consultation Status:</strong> <span class="badge_status badge_confirmed">Active Member</span></p>
+				</div>
+			</div>
+
+			<!-- Prescribed Remedies -->
+			<div class="section_card">
+				<h3><i class="fa fa-magic" style="color:#7b4397;"></i> Prescribed Remedies by Riitu Ma'am</h3>
+				
+				<div id="clientRemediesContainer">
+					<div class="remedy_box">
+						<h5>✨ Signature &amp; Name Spelling Correction</h5>
+						<p style="font-size: 13px; margin: 0; color: #555;">Add an extra letter 'I' in your professional signature to align with compound frequency 37 for business success.</p>
+					</div>
+
+					<div class="remedy_box">
+						<h5>🔮 Lo-Shu Grid Missing Number 5 Remedy</h5>
+						<p style="font-size: 13px; margin: 0; color: #555;">Wear a green aventurine bracelet on Wednesday morning after morning sun prayers to balance Earth element stability.</p>
+					</div>
+
+					<div class="remedy_box">
+						<h5>🏠 Vastu Zone Energy Correction</h5>
+						<p style="font-size: 13px; margin: 0; color: #555;">Place a brass sun on the East wall of your home office to amplify career growth and authority recognition.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Right Column: Consultations & Payment History -->
+		<div class="col-lg-7 col-md-12">
+			
+			<!-- Booked Consultations -->
+			<div class="section_card">
+				<h3>
+					<span><i class="fa fa-calendar" style="color:#7b4397;"></i> My Consultations</span>
+					<a href="appointment.html" style="font-size: 12px; color: #7b4397; font-weight: 700; text-decoration: none;">+ Book New</a>
+				</h3>
+
+				<div class="table-responsive">
+					<table class="table table-hover align-middle" style="font-size: 13.5px;">
+						<thead style="background: #faf5fc;">
+							<tr>
+								<th>Date &amp; Time</th>
+								<th>Service Type</th>
+								<th>Mode</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody id="consultationTableBody">
+							<!-- Dynamic Consultations -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- Payment & Transaction Records -->
+			<div class="section_card">
+				<h3><i class="fa fa-credit-card" style="color:#7b4397;"></i> Payment History</h3>
+
+				<div class="table-responsive">
+					<table class="table table-hover align-middle" style="font-size: 13.5px;">
+						<thead style="background: #faf5fc;">
+							<tr>
+								<th>Txn ID</th>
+								<th>Description</th>
+								<th>Amount</th>
+								<th>Date</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody id="clientOrdersTableBody">
+							<!-- Dynamic Payments -->
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+<!-- Firebase & Scripts -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/firebase-config.js" type="module"></script>
+<script type="text/javascript" src="js/astrology-interactive.js"></script>
+<script type="text/javascript" src="js/dashboards.js"></script>
+<script>
+$(document).ready(function() {
+    if (window.initClientDashboard) {
+        window.initClientDashboard();
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<!-- 
+Template Name: Astrology
+Version: 1.0.0
+Author: Kamleshyadav
+Website: http://himanshusofttech.com/
+Purchase: http://themeforest.net/user/kamleshyadav
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"><!--<![endif]-->
+<!-- Begin Head -->
+<head>
+<title>MindMitra Riitu – Simple Razorpay Checkout | E-Books & Consultations</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="description" content="Secure instant checkout for Chaldean Numerology E-Books, Kundli Guides, and Vastu Remedies by Riitu Raghav via Razorpay.">
+<meta name="keywords" content="Astrology, signs, gemstones, tarot, horoscopes, cards, numerology, Zodiac">
+<meta name="author" content="hsoft" >
+<meta name="MobileOptimized" content="320">
+<!--Srart Style -->
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/fonts.css">
+<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="shortcut icon" type="image/png" href="images/header/favicon.png">
+<link rel="icon" type="image/png" href="images/header/favicon.png">
+
+<!-- TOP RANKING SEO META TAGS -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="keywords" content="MindMitra Riitu, Checkout, Razorpay Payment, E-Book Download">
+<meta name="author" content="MindMitra Riitu - Advocate Riitu Raghav">
+<link rel="canonical" href="https://mindmitrariitu.com/checkout.html">
+
+<!-- OPEN GRAPH (OG) SOCIAL SHARING TAGS -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MindMitra Riitu – Simple Checkout | Numerology & Astrology">
+<meta property="og:description" content="Secure instant checkout for Chaldean Numerology E-Books and remedies by Riitu Raghav.">
+<meta property="og:url" content="https://mindmitrariitu.com/checkout.html">
+<meta property="og:site_name" content="MindMitra Riitu">
+<meta property="og:image" content="https://mindmitrariitu.com/images/header/mindmitra_official_logo.png">
+
+<!-- RAZORPAY SDK SCRIPT (Ready for Live API Integration) -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</head>
+<body>
+<!-- Header Start -->
+<div class="ast_top_header">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+				<div class="ast_contact_details">
+					<ul>
+						<li><i class="fa fa-phone" aria-hidden="true"></i> +91 87967 33997</li>
+						<li><a href="mailto:manurituraghav@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> manurituraghav@gmail.com</a></li>
+					</ul>
+				</div>
+				<div class="ast_autho_wrapper">
+					<ul>
+						<li><a class="popup-with-zoom-anim" href="#login-dialog"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a></li>
+						<li><a class="popup-with-zoom-anim" href="#signup-dialog"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
+						<li class="ast_search">
+							<a href="javascript:;"><i class="fa fa-search"></i></a>
+							<div class="ast_search_field">
+								<form action="shop.html" method="get">
+									<input type="text" name="s" placeholder="Search Here">
+									<button type="submit"><i class="fa fa-search"></i></button>
+								</form>
+							</div>
+						</li>
+						<li class="ast_wishlist">
+							
+						</li>
+						<li class="ast_cart">
+							<a href="cart.html" title="Shopping Cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+							<div class="ast_cart_box">
+								<div class="ast_cart_list">
+									<ul>
+										<li>
+											<div class="ast_cart_img">
+												<img src="images/header/astrology_numerology_transparent.png" class="img-responsive" style="max-height: 38px; object-fit: contain;">
+											</div>
+											<div class="ast_cart_info">
+												<a href="shop_single.html">Numerology Master E-Book</a>
+												<p>1 X ₹199</p>
+											</div>
+											<a href="javascript:;" class="ast_cart_remove"><i class="fa fa-trash"></i></a>
+										</li>
+									</ul>
+								</div>
+								<div class="ast_cart_total">
+									<p>total <span>₹199</span></p>
+								</div>
+								<div class="ast_cart_btn">
+									<a href="cart.html">view cart</a>
+									<a href="checkout.html">checkout</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!-- Login Dialog -->
+					<div id="login-dialog" class="zoom-anim-dialog mfp-hide custom_auth_container">
+						<div class="custom_auth_wrapper">
+							<!-- Left Side: Organic Blob Image Frame -->
+							<div class="custom_auth_left">
+								<div class="blob_image_frame">
+									<img src="images/765637113_18117591925823121_2835107640411605622_n.jpg" alt="Riitu Raghav - Login">
+								</div>
+							</div>
+							
+							<!-- Right Side: Clean White Login Form Card -->
+							<div class="custom_auth_right">
+								<div class="auth_form_card">
+									<h2>Login</h2>
+									<form id="customLoginForm" onsubmit="event.preventDefault(); alert('Login submitted successfully!');">
+										<div class="auth_input_group">
+											<input type="text" placeholder="Enter Mobile Number Without Code" required>
+										</div>
+										<div class="auth_input_group has_icon">
+											<input type="password" id="loginPasswordInput" placeholder="Password" required>
+											<i class="fa fa-eye-slash toggle-password" onclick="togglePasswordVisibility('loginPasswordInput', this)"></i>
+										</div>
+										<button type="submit" style="width:100%; background:#ff7700; color:#fff; font-weight:700; font-size:16px; border:none; padding:12px; border-radius:6px; cursor:pointer; box-shadow:0 4px 15px rgba(255,119,0,0.35); margin-top:5px; margin-bottom:18px; text-transform:capitalize; transition:all 0.3s ease;">Submit</button>
+										<div style="text-align:center;">
+											<p style="margin-bottom:6px; font-size:13px; color:#444;">Do not have an account? <a href="#signup-dialog" class="open-signup-modal" style="color:#570680; font-weight:700; text-decoration:none;">Sign Up</a></p>
+											<a href="#" style="font-size:12.5px; color:#570680; font-weight:600; text-decoration:none;">Forgot Password</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Sign Up Dialog -->
+					<div id="signup-dialog" class="zoom-anim-dialog mfp-hide custom_auth_container">
+						<div class="custom_auth_wrapper">
+							<!-- Left Side: Organic Blob Image Frame -->
+							<div class="custom_auth_left">
+								<div class="blob_image_frame">
+									<img src="images/765637113_18117591925823121_2835107640411605622_n.jpg" alt="Riitu Raghav - Sign Up">
+								</div>
+							</div>
+							
+							<!-- Right Side: Clean White Sign Up Form Card -->
+							<div class="custom_auth_right">
+								<div class="auth_form_card">
+									<h2>Sign Up</h2>
+									<form id="customSignUpForm" onsubmit="event.preventDefault(); alert('Account created successfully!');">
+										<div class="auth_input_group">
+											<input type="text" placeholder="Full Name" required>
+										</div>
+										<div class="auth_input_group">
+											<input type="text" placeholder="Enter Mobile Number Without Code" required>
+										</div>
+										<div class="auth_input_group">
+											<input type="email" placeholder="Email Address" required>
+										</div>
+										<div class="auth_input_group has_icon">
+											<input type="password" id="signupPasswordInput" placeholder="Password" required>
+											<i class="fa fa-eye-slash toggle-password" onclick="togglePasswordVisibility('signupPasswordInput', this)"></i>
+										</div>
+										<button type="submit" style="width:100%; background:#ff7700; color:#fff; font-weight:700; font-size:16px; border:none; padding:12px; border-radius:6px; cursor:pointer; box-shadow:0 4px 15px rgba(255,119,0,0.35); margin-top:5px; margin-bottom:15px; text-transform:capitalize; transition:all 0.3s ease;">Submit</button>
+										<div style="text-align:center;">
+											<p style="margin-bottom:0; font-size:13px; color:#444;">Have An Account? <a href="#login-dialog" class="open-login-modal" style="color:#570680; font-weight:700; text-decoration:none;">Login</a></p>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="ast_header_bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-10">
+				<div class="ast_logo">
+					<a href="index.html"><img src="images/header/logo.png" alt="MindMitra Riitu" ></a>
+				</div>
+			</div>
+			<div class="col-lg-9 col-md-9 col-sm-9 col-2">
+				<div class="ast_main_menu_wrapper">
+					<div class="ast_menu">
+						<ul>
+							<li><a href="index.html">home</a></li>
+							<li class="as_submenu_li"><a href="#">about us <i class="fa fa-angle-down"></i></a>
+    <ul class="submenu">
+        <li><a href="about.html">Riitu Raghav</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+</li>
+							<li><a href="services.html">services</a></li>
+							<li><a href="calculator.html">calculator</a></li>
+							<li><a href="blog.html">blog</a></li>
+							<li><a href="shop.html">shop</a></li>
+							<li><a href="appointment.html">appointment</a></li>
+							<li><a href="contact.html">contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<button class="ast_menu_btn"><i class="fa fa-bars" aria-hidden="true"></i></button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Header End -->
+<div class="ast_pagetitle">
+<div class="ast_img_overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="page_title">
+					<h2>checkout</h2>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<ul class="breadcrumb">
+					<li><a href="index.html">home</a></li>
+					<li>//</li>
+					<li><a href="checkout.html">checkout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Breadcrumb end-->
+
+<!-- Simple Razorpay Checkout Section Start -->
+<div class="ast_checkout_wrapper ast_toppadder70 ast_bottompadder70" style="float: left; width: 100%; clear: both; background-color: #ffffff;">
+	<div class="container">
+
+		<!-- Order Success Modal / Alert Banner (Hidden by default) -->
+		<div id="orderSuccessAlert" style="display: none; background: #e8f5e9; border: 1.5px solid #2e7d32; border-radius: 12px; padding: 25px; margin-bottom: 30px; text-align: center; box-shadow: 0 10px 25px rgba(46,125,50,0.15);">
+			<i class="fa fa-check-circle" style="font-size: 48px; color: #2e7d32; margin-bottom: 12px;"></i>
+			<h3 style="color: #1b5e20; font-weight: 700; margin-bottom: 8px;">Order Placed Successfully!</h3>
+			<p style="font-size: 15px; color: #333; margin-bottom: 15px;" id="orderSuccessMsg">Thank you for your purchase. Your Order ID is <strong id="outOrderId">#ORD-1001</strong>. Confirmation has been sent to your email &amp; saved in Firebase Firestore.</p>
+			<a href="shop.html" style="background: #2e7d32; color: #fff; font-weight: 700; padding: 10px 24px; border-radius: 25px; text-decoration: none; display: inline-block;">Back to Shop &rarr;</a>
+		</div>
+
+		<div class="row" id="checkoutFormRow">
+			<!-- LEFT COLUMN: Customer & Shipping Details (7 cols) -->
+			<div class="col-lg-7 col-md-7 col-sm-12 col-12" style="margin-bottom: 30px;">
+				<div style="background: #ffffff; border: 1px solid #e0d0eb; border-radius: 12px; padding: 28px; box-shadow: 0 4px 20px rgba(123,67,151,0.06);">
+					<h3 style="font-size: 20px; font-weight: 700; color: #7b4397; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+						<i class="fa fa-user-circle"></i> Customer Contact &amp; Delivery Details
+					</h3>
+
+					<form id="simpleCheckoutForm" onsubmit="handleCheckoutSubmit(event)">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-12" style="margin-bottom: 18px;">
+								<label style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px;">Full Name *</label>
+								<input type="text" id="chk_name" class="form-control" placeholder="e.g. Rahul Sharma" required style="border-radius: 6px; padding: 10px 14px; font-size: 14px;">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12" style="margin-bottom: 18px;">
+								<label style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px;">WhatsApp / Mobile Number *</label>
+								<input type="tel" id="chk_phone" class="form-control" placeholder="e.g. +91 98765 43210" required style="border-radius: 6px; padding: 10px 14px; font-size: 14px;">
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 18px;">
+								<label style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px;">Email Address (For Instant E-Book Download) *</label>
+								<input type="email" id="chk_email" class="form-control" placeholder="e.g. rahul.sharma@gmail.com" required style="border-radius: 6px; padding: 10px 14px; font-size: 14px;">
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 18px;">
+								<label style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px;">Full Address *</label>
+								<textarea id="chk_address" class="form-control" rows="3" placeholder="House/Flat No., Street, Area..." required style="border-radius: 6px; padding: 10px 14px; font-size: 14px;"></textarea>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-6" style="margin-bottom: 18px;">
+								<label style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px;">City *</label>
+								<input type="text" id="chk_city" class="form-control" placeholder="e.g. Ghaziabad" required style="border-radius: 6px; padding: 10px 14px; font-size: 14px;">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-6" style="margin-bottom: 18px;">
+								<label style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px;">State *</label>
+								<input type="text" id="chk_state" class="form-control" placeholder="e.g. Uttar Pradesh" required style="border-radius: 6px; padding: 10px 14px; font-size: 14px;">
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-12" style="margin-bottom: 18px;">
+								<label style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 6px;">Pincode *</label>
+								<input type="text" id="chk_pincode" class="form-control" placeholder="e.g. 201013" required style="border-radius: 6px; padding: 10px 14px; font-size: 14px;">
+							</div>
+						</div>
+
+						<div style="background: #faf5fc; border-radius: 8px; padding: 12px 16px; margin-top: 10px; border: 1px dashed #7b4397; font-size: 13px; color: #555;">
+							<i class="fa fa-lock" style="color: #7b4397; margin-right: 6px;"></i> 100% Encrypted &amp; Confidential Order Processing by MindMitra Riitu.
+						</div>
+
+						<button type="submit" id="submitOrderBtn" style="display: none;"></button>
+					</form>
+				</div>
+			</div>
+
+			<!-- RIGHT COLUMN: Order Summary & Razorpay Action Card (5 cols) -->
+			<div class="col-lg-5 col-md-5 col-sm-12 col-12">
+				<div style="background: #ffffff; border: 2px solid #7b4397; border-radius: 12px; padding: 25px; box-shadow: 0 8px 25px rgba(123,67,151,0.12); position: sticky; top: 90px;">
+					<h3 style="font-size: 18px; font-weight: 700; color: #111; margin-bottom: 18px; border-bottom: 2px solid #faf5fc; padding-bottom: 10px;">
+						Order Summary
+					</h3>
+
+					<!-- Selected Product Box -->
+					<div style="display: flex; gap: 15px; align-items: center; background: #faf5fc; padding: 14px; border-radius: 8px; margin-bottom: 20px;">
+						<img id="chk_prod_img" src="images/header/astrology_numerology_transparent.png" alt="Product" style="max-height: 55px; width: 55px; object-fit: contain;">
+						<div style="flex: 1;">
+							<h4 id="chk_prod_title" style="font-size: 15px; font-weight: 700; color: #111; margin: 0 0 4px 0;">Loading...</h4>
+							<p style="font-size: 12px; color: #7b4397; margin: 0; font-weight: 600;"><i class="fa fa-download"></i> Digital Access + PDF</p>
+						</div>
+						<div style="text-align: right;">
+							<strong id="chk_prod_price" style="font-size: 18px; color: #7b4397; font-weight: 800;">₹...</strong>
+						</div>
+					</div>
+
+					<!-- Pricing Calculation -->
+					<div style="border-bottom: 1px solid #f0f0f0; padding-bottom: 12px; margin-bottom: 15px; font-size: 14px;">
+						<div style="display: flex; justify-content: space-between; margin-bottom: 8px; color: #666;">
+							<span>Item Subtotal</span>
+							<span id="chk_subtotal" style="font-weight: 600; color: #333;">₹199</span>
+						</div>
+						<div style="display: flex; justify-content: space-between; margin-bottom: 8px; color: #666;">
+							<span>GST &amp; Taxes</span>
+							<span style="font-weight: 600; color: #2e7d32;">Included</span>
+						</div>
+					</div>
+
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px;">
+						<span style="font-size: 16px; font-weight: 700; color: #111;">Total Payable</span>
+						<strong id="chk_total_display" style="font-size: 24px; color: #7b4397; font-weight: 800;">₹199</strong>
+					</div>
+
+					<!-- Razorpay Gateway Card -->
+					<div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; padding: 18px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+						<div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px;">
+							<i class="fa fa-shield" style="color: #38bdf8; font-size: 18px;"></i>
+							<span style="font-weight: 700; font-size: 14px; letter-spacing: 0.5px;">Razorpay Secure Gateway</span>
+						</div>
+						<p style="font-size: 12px; color: #94a3b8; margin: 0;">UPI (GPay/PhonePe), Credit/Debit Cards &amp; NetBanking</p>
+					</div>
+
+					<!-- Submit Button -->
+					<button type="button" onclick="triggerCheckoutSubmission()" style="background: linear-gradient(45deg, #7b4397, #9c27b0); color: #ffffff; font-weight: 700; font-size: 15px; padding: 14px; border: none; border-radius: 30px; width: 100%; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; box-shadow: 0 6px 20px rgba(123,67,151,0.3);">
+						Pay <span id="payBtnAmount">₹199</span> via Razorpay &rarr;
+					</button>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- Simple Razorpay Checkout Section End -->
+
+<!-- Footer wrapper start-->
+<div class="ast_footer_wrapper" style="background: linear-gradient(180deg, #0d061f 0%, #05020c 100%); position: relative; z-index: 10; clear: both; float: left; width: 100%; border-top: 1px solid rgba(212, 175, 55, 0.3); padding: 50px 0 20px 0; color: #ffffff;">
+	<div class="container">
+		<!-- Top Newsletter Banner -->
+		<div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 16px; padding: 25px 30px; margin-bottom: 40px; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+			<div class="row align-items-center">
+				<div class="col-lg-6 col-md-12" style="margin-bottom: 12px;">
+					<h3 style="color: #ffda79; font-size: 19px; font-weight: 700; margin-bottom: 5px; letter-spacing: 0.5px;">✨ Unlock Your Cosmic Potential</h3>
+					<p style="color: #c7b9e0; font-size: 13px; margin: 0; line-height: 1.5;">Subscribe for exclusive planetary prediction updates &amp; numerology tips by Riitu Raghav.</p>
+				</div>
+				<div class="col-lg-6 col-md-12">
+					<form action="#" onsubmit="event.preventDefault(); alert('Thank you for subscribing to MindMitra Cosmic Newsletter!');" style="display: flex; gap: 10px; flex-wrap: wrap;">
+						<input type="email" placeholder="Enter your email address..." required style="flex: 1; min-width: 200px; padding: 10px 18px; border-radius: 30px; border: 1px solid rgba(212, 175, 55, 0.4); background: rgba(13, 6, 31, 0.8); color: #fff; font-size: 13px; outline: none;">
+						<button type="submit" style="padding: 10px 24px; border-radius: 30px; border: none; background: linear-gradient(135deg, #d4af37 0%, #ffda79 100%); color: #0d061f; font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);">Subscribe</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer Main Grid -->
+		<div class="row">
+			<!-- Col 1: Brand Info & Socials -->
+			<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 30px;">
+				<div style="padding-right: 15px;">
+					<a href="./" style="display: inline-block; margin-bottom: 16px; text-decoration: none;">
+						<img src="images/header/mindmitra_official_logo.png" alt="MindMitra Riitu Logo" style="max-height: 46px; width: auto; filter: drop-shadow(0 2px 8px rgba(212,175,55,0.2));">
+					</a>
+					<p style="color: #bfaed8; font-size: 13px; line-height: 1.7; margin-bottom: 20px;">
+						Empowering lives with scientific Chaldean Numerology, Vedic Kundli, Tarot Guidance &amp; Vastu Solutions by Advocate &amp; Master Practitioner Riitu Raghav.
+					</p>
+					<div style="display: flex; gap: 10px; align-items: center;">
+						<a href="https://facebook.com" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.3); display: flex; align-items: center; justify-content: center; color: #ffda79; text-decoration: none; transition: all 0.3s ease;"><i class="fa fa-facebook"></i></a>
+						<a href="https://instagram.com" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.3); display: flex; align-items: center; justify-content: center; color: #ffda79; text-decoration: none; transition: all 0.3s ease;"><i class="fa fa-instagram"></i></a>
+						<a href="https://youtube.com" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.06); border: 1px solid rgba(212,175,55,0.3); display: flex; align-items: center; justify-content: center; color: #ffda79; text-decoration: none; transition: all 0.3s ease;"><i class="fa fa-youtube-play"></i></a>
+						<a href="https://wa.me/918796733997" target="_blank" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(37,211,102,0.15); border: 1px solid rgba(37,211,102,0.4); display: flex; align-items: center; justify-content: center; color: #25d366; text-decoration: none; transition: all 0.3s ease;"><i class="fa fa-whatsapp"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Col 2: Our Services -->
+			<div class="col-lg-2 col-md-6 col-sm-6" style="margin-bottom: 30px;">
+				<h4 style="color: #ffda79; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; position: relative; padding-bottom: 8px;">
+					Our Services
+					<span style="position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background: #d4af37;"></span>
+				</h4>
+				<ul style="list-style: none; padding: 0; margin: 0;">
+					<li style="margin-bottom: 10px;"><a href="services" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Chaldean Numerology</a></li>
+					<li style="margin-bottom: 10px;"><a href="services" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Lo-Shu Grid Remedies</a></li>
+					<li style="margin-bottom: 10px;"><a href="services" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Vedic Kundli Reading</a></li>
+					<li style="margin-bottom: 10px;"><a href="services" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Tarot Card Guidance</a></li>
+					<li style="margin-bottom: 10px;"><a href="services" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Vastu Shastra Audit</a></li>
+				</ul>
+			</div>
+
+			<!-- Col 3: Quick Links -->
+			<div class="col-lg-2 col-md-6 col-sm-6" style="margin-bottom: 30px;">
+				<h4 style="color: #ffda79; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; position: relative; padding-bottom: 8px;">
+					Quick Links
+					<span style="position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background: #d4af37;"></span>
+				</h4>
+				<ul style="list-style: none; padding: 0; margin: 0;">
+					<li style="margin-bottom: 10px;"><a href="about.html" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> About Riitu Raghav</a></li>
+					<li style="margin-bottom: 10px;"><a href="calculator.html" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Free Calculator</a></li>
+					<li style="margin-bottom: 10px;"><a href="blog.html" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Articles &amp; Blog</a></li>
+					<li style="margin-bottom: 10px;"><a href="shop.html" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Gemstones &amp; Shop</a></li>
+					<li style="margin-bottom: 10px;"><a href="appointment.html" style="color: #bfaed8; text-decoration: none; font-size: 13px; transition: color 0.3s;"><span style="color: #d4af37; margin-right: 6px;">›</span> Book Consultation</a></li>
+				</ul>
+			</div>
+
+			<!-- Col 4: Sanctuary Contact & Instant Connect -->
+			<div class="col-lg-4 col-md-6 col-sm-12" style="margin-bottom: 30px;">
+				<h4 style="color: #ffda79; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; position: relative; padding-bottom: 8px;">
+					Get In Touch
+					<span style="position: absolute; bottom: 0; left: 0; width: 35px; height: 2px; background: #d4af37;"></span>
+				</h4>
+				<ul style="list-style: none; padding: 0; margin: 0; margin-bottom: 15px;">
+					<li style="margin-bottom: 12px; display: flex; gap: 12px; color: #bfaed8; font-size: 13px; line-height: 1.5;">
+						<i class="fa fa-map-marker" style="color: #ffda79; font-size: 16px; margin-top: 3px; flex-shrink: 0;"></i>
+						<span>Block-I House 228 (Opp. Post Office), Govindpuram, Ghaziabad (UP) 201013</span>
+					</li>
+					<li style="margin-bottom: 12px; display: flex; gap: 12px; color: #bfaed8; font-size: 13px;">
+						<i class="fa fa-phone" style="color: #ffda79; font-size: 15px; margin-top: 2px; flex-shrink: 0;"></i>
+						<a href="tel:+918796733997" style="color: #bfaed8; text-decoration: none; font-weight: 600;">+91 87967 33997</a>
+					</li>
+					<li style="margin-bottom: 12px; display: flex; gap: 12px; color: #bfaed8; font-size: 13px;">
+						<i class="fa fa-envelope" style="color: #ffda79; font-size: 14px; margin-top: 3px; flex-shrink: 0;"></i>
+						<a href="mailto:manurituraghav@gmail.com" style="color: #bfaed8; text-decoration: none;">manurituraghav@gmail.com</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Bottom Copyright Bar -->
+		<div style="margin-top: 25px; border-top: 1px solid rgba(212, 175, 55, 0.2); padding-top: 20px;">
+			<div class="row align-items-center">
+				<div class="col-md-7 col-sm-12" style="text-align: left; margin-bottom: 10px;">
+					<p style="color: #8f7fb0; font-size: 12.5px; margin: 0;">&copy; Copyright 2026 <a href="./" style="color: #ffda79; text-decoration: none; font-weight: 600;">MindMitra Riitu</a>. All Rights Reserved.</p>
+				</div>
+				<div class="col-md-5 col-sm-12" style="text-align: right;">
+					<a href="privacy_policy" style="color: #8f7fb0; font-size: 12px; text-decoration: none; margin-left: 15px;">Privacy Policy</a>
+					<a href="contact" style="color: #8f7fb0; font-size: 12px; text-decoration: none; margin-left: 15px;">Contact Support</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer wrapper End-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+<script type="text/javascript" src="js/owl.carousel.js"></script>
+<script type="text/javascript" src="js/jquery.countTo.js"></script>
+<script type="text/javascript" src="js/jquery.appear.js"></script>
+<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="js/firebase-config.js?v=9"></script>
+<script type="text/javascript" src="js/astrology-interactive.js?v=9"></script>
+<script>
+// -------------------------------------------------------
+// Dynamic Checkout — reads cartItems from localStorage
+// -------------------------------------------------------
+var _checkoutTotal = 199;
+var _checkoutItems = [];
+var _checkoutTitle = 'Order';
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Read cart from localStorage
+    var cart = [];
+    try { cart = JSON.parse(localStorage.getItem('cartItems')) || []; } catch(e) {}
+
+    // Fallback: check single-item checkout keys (Buy Now button)
+    if (cart.length === 0) {
+        var singleName  = localStorage.getItem('checkoutItemName');
+        var singlePrice = localStorage.getItem('checkoutItemPrice');
+        var singleImg   = localStorage.getItem('checkoutItemImg') || '';
+        if (singleName && singlePrice) {
+            cart = [{ title: singleName, price: singlePrice, qty: 1, img: singleImg }];
+        }
+    }
+
+    if (cart.length === 0) {
+        // No cart data — show default
+        _checkoutTotal = 199;
+        _checkoutTitle = 'Astrology & Numerology Master E-Book';
+        document.getElementById('chk_prod_title').textContent = _checkoutTitle;
+        updateDisplay(_checkoutTotal);
+        return;
+    }
+
+    // Calculate grand total
+    var grandTotal = 0;
+    cart.forEach(function(item) {
+        grandTotal += parseInt(item.price || 0, 10) * parseInt(item.qty || 1, 10);
+    });
+
+    _checkoutTotal = grandTotal;
+    _checkoutItems = cart;
+
+    // Show product info
+    if (cart.length === 1) {
+        _checkoutTitle = cart[0].title || 'Product';
+        document.getElementById('chk_prod_title').textContent = _checkoutTitle;
+        if (cart[0].img) {
+            document.getElementById('chk_prod_img').src = cart[0].img;
+        }
+    } else {
+        _checkoutTitle = cart.length + ' Items';
+        document.getElementById('chk_prod_title').textContent = cart.length + ' products in your cart';
+    }
+
+    updateDisplay(grandTotal);
+});
+
+function updateDisplay(total) {
+    var fmt = '\u20b9' + parseInt(total, 10).toLocaleString('en-IN');
+    document.getElementById('chk_prod_price').textContent  = fmt;
+    document.getElementById('chk_subtotal').textContent    = fmt;
+    document.getElementById('chk_total_display').textContent = fmt;
+    document.getElementById('payBtnAmount').textContent    = fmt;
+}
+
+function triggerCheckoutSubmission() {
+    document.getElementById('submitOrderBtn').click();
+}
+
+function handleCheckoutSubmit(event) {
+    event.preventDefault();
+
+    var name  = document.getElementById('chk_name').value;
+    var email = document.getElementById('chk_email').value;
+    var phone = document.getElementById('chk_phone').value;
+
+    // Use dynamic total (in paise)
+    var totalRs    = parseInt(_checkoutTotal, 10) || 199;
+    var amountPaise = totalRs * 100;
+
+    var options = {
+        "key": "rzp_live_TgkYjY7qJWY8nu",
+        "amount": amountPaise,
+        "currency": "INR",
+        "name": "MindMitra Riitu",
+        "description": _checkoutTitle,
+        "image": "images/header/logo.png",
+        "handler": function(response) {
+            document.getElementById('checkoutFormRow').style.display = 'none';
+            document.getElementById('orderSuccessAlert').style.display = 'block';
+            document.getElementById('outOrderId').innerText = response.razorpay_payment_id;
+
+            // Save order to Firebase
+            if (window.FirebaseHelper) {
+                window.FirebaseHelper.saveOrder({
+                    customerName: name,
+                    email: email,
+                    phone: phone,
+                    paymentId: response.razorpay_payment_id,
+                    product: _checkoutTitle,
+                    items: JSON.stringify(_checkoutItems),
+                    total: '\u20b9' + totalRs,
+                    paymentMethod: "Razorpay Live / UPI",
+                    paymentStatus: "Paid"
+                });
+            }
+
+            if (window.showToast) {
+                window.showToast("🎉 Payment Successful! Order #" + response.razorpay_payment_id + " saved to database.", "success");
+            }
+
+            // Clear cart after successful order
+            localStorage.removeItem('cartItems');
+            localStorage.removeItem('checkoutItemName');
+            localStorage.removeItem('checkoutItemPrice');
+            localStorage.removeItem('checkoutItemImg');
+            if (window.updateCartUI) window.updateCartUI();
+        },
+        "prefill": { "name": name, "email": email, "contact": phone },
+        "theme": { "color": "#7b4397" }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.on('payment.failed', function(response) {
+        alert("Payment Failed. Reason: " + response.error.description);
+    });
+    rzp1.open();
+}
+</script>
+</body>
+</html>

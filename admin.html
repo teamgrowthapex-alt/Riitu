@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Appointments</title>
+    <style>
+        body { font-family: 'Open Sans', sans-serif; background: #f4f7f6; margin: 0; padding: 20px; }
+        h1 { text-align: center; color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #ff7700; color: #fff; }
+        tr:hover { background: #f1f1f1; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .info { text-align: center; padding: 20px; background: #fff8e1; border: 1px solid #ffc107; border-radius: 4px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Appointments Admin Portal</h1>
+    
+    <div class="info">
+        <strong>Note:</strong> To see the data, you must add your Firebase configuration in the source code of this page and <code>appointment.html</code>. Make sure Firestore is enabled in your Firebase console.
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Service Date</th>
+                <th>Time Slot</th>
+                <th>Gender</th>
+                <th>Reason</th>
+            </tr>
+        </thead>
+        <tbody id="appointments-list">
+            <tr>
+                <td colspan="8" style="text-align:center;">Loading data...</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Firebase App -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<!-- Firebase Firestore -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+<script>
+  // YOUR FIREBASE CONFIGURATION HERE
+  const firebaseConfig = {
+    apiKey: "AIzaSyDJTsu7Qm-UdPNSTWHJaNbbrSbzptQUpLw",
+    authDomain: "mindmitrariitu.firebaseapp.com",
+    projectId: "mindmitrariitu",
+    storageBucket: "mindmitrariitu.firebasestorage.app",
+    messagingSenderId: "41708440556",
+    appId: "1:41708440556:web:deac068d9ba323886e4ec9",
+    measurementId: "G-LECQVTHZTG"
+  };
+
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  const db = firebase.firestore();
+
+  const tbody = document.getElementById('appointments-list');
+
+  // Fetch appointments
+  db.collection("appointments").orderBy("timestamp", "desc").onSnapshot((querySnapshot) => {
+      tbody.innerHTML = ''; // clear loading text
+      
+      if (querySnapshot.empty) {
+          tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No appointments found.</td></tr>';
+          return;
+      }
+      
+      querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const submittedDate = data.timestamp ? data.timestamp.toDate().toLocaleString() : 'N/A';
+          
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+              <td>${submittedDate}</td>
+              <td>${data.name || ''}</td>
+              <td>${data.email || ''}</td>
+              <td>${data.phone || ''}</td>
+              <td>${data.date || ''}</td>
+              <td>${data.timeSlot || ''}</td>
+              <td>${data.gender || ''}</td>
+              <td>${data.reason || ''}</td>
+          `;
+          tbody.appendChild(tr);
+      });
+  }, (error) => {
+      console.error("Error getting documents: ", error);
+      tbody.innerHTML = `
+        <tr>
+            <td colspan="8" style="text-align:center;color:red; margin-bottom:10px;">
+                Firebase Error: Could not load data. (Showing dummy data below for preview)
+            </td>
+        </tr>
+        <tr>
+            <td>2026-09-26 10:00:00</td>
+            <td>Rahul Sharma</td>
+            <td>rahul@example.com</td>
+            <td>+91 9876543210</td>
+            <td>2026-09-28</td>
+            <td>10:00 AM - 12:00 PM</td>
+            <td>Male</td>
+            <td>Want to discuss career numerology</td>
+        </tr>
+        <tr>
+            <td>2026-09-26 11:30:00</td>
+            <td>Priya Verma</td>
+            <td>priya.v@example.com</td>
+            <td>+91 8765432109</td>
+            <td>2026-09-29</td>
+            <td>02:00 PM - 04:00 PM</td>
+            <td>Female</td>
+            <td>Kundli matching consultation</td>
+        </tr>
+      `;
+  });
+</script>
+
+</body>
+</html>

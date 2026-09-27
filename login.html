@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Login - MindMitra Riitu</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Style Links -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/fonts.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/png" href="images/header/favicon.png">
+
+<style>
+body, html {
+	height: 100%;
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+	background: linear-gradient(135deg, #44006b 0%, #570680 50%, #350054 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.full_page_auth_wrapper {
+	width: 100%;
+	max-width: 1100px;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+.auth_inner_container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 50px;
+}
+
+.auth_left_blob {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.blob_frame {
+	position: relative;
+	width: 100%;
+	max-width: 440px;
+	height: 380px;
+	border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%;
+	overflow: hidden;
+	border: 5px solid #ffffff;
+	box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+	background: #111;
+}
+
+.blob_frame img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top center;
+}
+
+.auth_right_card {
+	flex: 0 0 380px;
+	max-width: 380px;
+}
+
+.card_box {
+	background: #ffffff;
+	border-radius: 12px;
+	padding: 40px 32px;
+	box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+	text-align: center;
+}
+
+.card_box h2 {
+	font-size: 26px;
+	font-weight: 700;
+	color: #111111;
+	margin-bottom: 25px;
+	text-transform: capitalize;
+}
+
+.input_field {
+	width: 100%;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	padding: 12px 15px;
+	font-size: 14px;
+	outline: none;
+	color: #333;
+	margin-bottom: 16px;
+	box-sizing: border-box;
+}
+
+.input_field:focus {
+	border-color: #ff7700;
+}
+
+.submit_btn {
+	width: 100%;
+	background: #ff7700;
+	color: #ffffff;
+	font-weight: 700;
+	font-size: 16px;
+	border: none;
+	padding: 12px;
+	border-radius: 6px;
+	cursor: pointer;
+	box-shadow: 0 4px 15px rgba(255,119,0,0.4);
+	margin-top: 5px;
+	margin-bottom: 20px;
+	text-transform: capitalize;
+	transition: all 0.3s ease;
+}
+
+.submit_btn:hover {
+	background: #e66a00;
+}
+
+.link_purple {
+	color: #570680;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.link_purple:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.auth_inner_container {
+		flex-direction: column;
+		gap: 30px;
+	}
+	.auth_right_card {
+		flex: 1;
+		width: 100%;
+		max-width: 100%;
+	}
+	.blob_frame {
+		height: 250px;
+		max-width: 300px;
+	}
+}
+</style>
+</head>
+<body>
+
+<div class="full_page_auth_wrapper">
+	<div class="auth_inner_container">
+		<!-- Left Side Image in Fluid Blob Mask -->
+		<div class="auth_left_blob">
+			<div class="blob_frame">
+				<img src="images/765637113_18117591925823121_2835107640411605622_n.jpg" alt="Riitu Raghav - MindMitra">
+			</div>
+		</div>
+
+		<!-- Right Side White Form Card -->
+		<div class="auth_right_card">
+			<div class="card_box">
+				<h2>Login</h2>
+				<form id="customLoginForm" action="#">
+					<div class="auth_input_group">
+						<input type="text" class="input_field" placeholder="Enter Email or Mobile Number" required>
+					</div>
+					<div class="auth_input_group has_icon">
+						<input type="password" id="pagePasswordInput" class="input_field" placeholder="Password" required>
+						<i class="fa fa-eye-slash toggle-password" onclick="togglePass('pagePasswordInput', this)"></i>
+					</div>
+					<button type="submit" class="submit_btn">Submit</button>
+
+					<p style="margin-bottom: 8px; font-size: 13.5px; color: #444;">
+						Do not have an account? <a href="signup.html" class="link_purple">Sign Up</a>
+					</p>
+					<a href="#" style="font-size: 13px; color: #570680; font-weight: 600; text-decoration: none;">Forgot Password</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/firebase-config.js" type="module"></script>
+<script type="text/javascript" src="js/astrology-interactive.js"></script>
+<script>
+function togglePass(inputId, icon) {
+	const input = document.getElementById(inputId);
+	if (input.type === "password") {
+		input.type = "text";
+		icon.classList.remove("fa-eye-slash");
+		icon.classList.add("fa-eye");
+	} else {
+		input.type = "password";
+		icon.classList.remove("fa-eye");
+		icon.classList.add("fa-eye-slash");
+	}
+}
+</script>
+</body>
+</html>
