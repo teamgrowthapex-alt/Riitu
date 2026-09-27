@@ -671,13 +671,16 @@
                     `);
                 }
 
-                if ($searchItem.length) $ul.append($searchItem);
-                if ($cartItem.length) $ul.append($cartItem);
-            });
+				if ($searchItem.length) $ul.append($searchItem);
+				if (isLoggedIn && $cartItem.length) {
+					$ul.append($cartItem);
+				}
+			});
 
-            if ($.fn && $.fn.magnificPopup) {
-                $('.popup-with-zoom-anim').magnificPopup({
-                    type: 'inline',
+			// Ensure magnificPopup is re-bound so login/signup continue working
+			if ($.fn && $.fn.magnificPopup) {
+				$('.popup-with-zoom-anim').magnificPopup({
+					type: 'inline',
                     fixedContentPos: false,
                     fixedBgPos: true,
                     overflowY: 'auto',

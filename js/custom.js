@@ -123,8 +123,8 @@ $(document).ready(function(){
 							 href.includes('checkout.html') || 
 							 href.includes('appointment.html');
 							 
-		// Allow logout links or actual login buttons to work
-		if ($(this).hasClass('open-login-modal') || href.includes('#login-dialog') || href.includes('logout')) {
+		// Allow logout links or actual login/signup buttons to work
+		if ($(this).hasClass('open-login-modal') || href.includes('#login-dialog') || href.includes('#signup-dialog') || href.includes('logout')) {
 			isAuthRequired = false;
 		}
 
@@ -195,6 +195,16 @@ $(document).ready(function(){
                 }
                 return false;
             }
+        }
+    });
+});
+
+
+$(document).ready(function(){
+    // Make home page slider image clickable to redirect to appointment page
+    $('.ast_slider_wrapper, .ast_hero_image_wrapper').css('cursor', 'pointer').on('click', function(e) {
+        if (!$(e.target).closest('a, button, input, .ast_btn').length) {
+            window.location.href = 'appointment.html';
         }
     });
 });
