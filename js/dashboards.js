@@ -336,8 +336,13 @@ window.initClientDashboard = function() {
             !userEmail || (a.email && a.email.toLowerCase().includes(userEmail)) || (a.name && a.name.toLowerCase().includes(userName.toLowerCase()))
         );
 
-        const listToRender = userApts.length > 0 ? userApts : appointments.slice(0, 3);
+        const listToRender = userApts;
         $('#statConsultations').text(listToRender.length);
+
+        if (listToRender.length === 0) {
+            $tbody.append('<tr><td colspan="4" class="text-center text-muted py-3">No consultations found. Book your first session!</td></tr>');
+            return;
+        }
 
         listToRender.forEach((apt) => {
             const dateStr = apt.date || 'Scheduled Slot';
@@ -363,11 +368,15 @@ window.initClientDashboard = function() {
             !userEmail || (o.userEmail && o.userEmail.toLowerCase().includes(userEmail)) || (o.email && o.email.toLowerCase().includes(userEmail)) || (o.customerName && o.customerName.toLowerCase().includes(userName.toLowerCase()))
         );
 
-        const listToRender = userOrders.length > 0 ? userOrders : orders.slice(0, 3);
+        const listToRender = userOrders;
 
         if ($tbody.length) {
             $tbody.empty();
             if ($tbodyDownloads.length) $tbodyDownloads.empty();
+
+            if (listToRender.length === 0) {
+                $tbody.append('<tr><td colspan="5" class="text-center text-muted py-3">No payment history found.</td></tr>');
+            }
 
             listToRender.forEach((ord) => {
                 const rawTotal = (ord.total || "499").toString().replace(/[^0-9]/g, '');
@@ -429,20 +438,11 @@ window.initClientDashboard = function() {
             (r.clientVal && r.clientVal.toLowerCase().includes(userName.toLowerCase()))
         );
 
-        const listToRender = userRemedies.length > 0 ? userRemedies : remedies;
+        const listToRender = userRemedies;
         $('#statRemedies').text(listToRender.length);
 
         if (listToRender.length === 0) {
-            $container.html(`
-                <div class="remedy_box">
-                    <h5>✨ Personal Signature & Name Spelling Correction</h5>
-                    <p style="font-size: 13px; margin: 0; color: #555;">Add an extra letter 'I' in your professional signature to align with compound frequency 37 for business success.</p>
-                </div>
-                <div class="remedy_box">
-                    <h5>🔮 Lo-Shu Grid Missing Number 5 Remedy</h5>
-                    <p style="font-size: 13px; margin: 0; color: #555;">Wear a green aventurine bracelet on Wednesday morning after morning sun prayers to balance Earth element stability.</p>
-                </div>
-            `);
+            $container.html(`<div class="remedy_box"><p class="text-muted mb-0" style="font-size: 14px;">No remedies prescribed yet. Consult with Riitu Ma'am for personalized guidance.</p></div>`);
         } else {
             $container.empty();
             listToRender.forEach((rem) => {
