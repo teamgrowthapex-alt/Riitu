@@ -356,6 +356,7 @@ window.initClientDashboard = function() {
     // Listen for Client's Orders & Payments
     window.FirebaseHelper.onOrdersUpdate((orders) => {
         const $tbody = $('#clientOrdersTableBody');
+        const $tbodyDownloads = $('#clientDownloadsTableBody');
         let totalSpent = 0;
 
         const userOrders = orders.filter(o => 
@@ -366,6 +367,8 @@ window.initClientDashboard = function() {
 
         if ($tbody.length) {
             $tbody.empty();
+            if ($tbodyDownloads.length) $tbodyDownloads.empty();
+
             listToRender.forEach((ord) => {
                 const rawTotal = (ord.total || "499").toString().replace(/[^0-9]/g, '');
                 const amount = parseInt(rawTotal || "499", 10);
@@ -384,7 +387,26 @@ window.initClientDashboard = function() {
                         <td><span class="badge_status badge_paid">${escapeHtml(ord.status || 'Completed')}</span></td>
                     </tr>
                 `);
+
+                if ($tbodyDownloads.length && (ord.product || '').toLowerCase().includes('book') || (ord.product || '').toLowerCase().includes('report')) {
+                    $tbodyDownloads.append(`
+                        <tr>
+                            <td><strong>${escapeHtml(ord.product || 'Purchased Item')}</strong></td>
+                            <td>${dateStr}</td>
+                            <td>
+                                <a href="javascript:showToast('Downloading your PDF document...', 'success')" style="background:#570680; color:#fff; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; text-decoration:none; display:inline-block;">
+                                    <i class="fa fa-download"></i> Download PDF
+                                </a>
+                            </td>
+                        </tr>
+                    `);
+                }
             });
+            
+            // If no downloads found, show a message
+            if ($tbodyDownloads.length && $tbodyDownloads.children().length === 0) {
+                $tbodyDownloads.append('<tr><td colspan="3" class="text-center text-muted py-3">No digital downloads available yet.</td></tr>');
+            }
         } else {
             listToRender.forEach((ord) => {
                 const rawTotal = (ord.total || "499").toString().replace(/[^0-9]/g, '');
