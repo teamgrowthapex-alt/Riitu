@@ -650,17 +650,14 @@
                     const portalText = (userRole === 'admin') ? 'Admin Portal' : 'My Dashboard';
 
                     $ul.append(`
-                        <li style="color: #ffffff; font-weight: 600; padding: 0 8px; display: inline-flex; align-items: center; gap: 6px;">
-                            <i class="fa fa-user-circle" style="color: #d4af37; font-size: 15px;"></i> Hi, <span style="color: #ffd700;">${userName}</span>
-                        </li>
                         <li>
-                            <a href="${portalUrl}" style="color: #ffda79; font-weight: 700;">
-                                <i class="fa fa-tachometer" aria-hidden="true"></i> ${portalText}
+                            <a href="${portalUrl}" title="${portalText}" style="color: #d4af37; font-size: 24px; display: inline-flex; align-items: center; padding: 0 10px;">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="javascript:;" id="btn_signout_trigger" style="color: #ff6b6b; font-weight: 600;">
-                                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out
+                            <a href="javascript:;" id="btn_signout_trigger" title="Sign Out" style="color: #ff6b6b; font-size: 24px; display: inline-flex; align-items: center; padding: 0 10px;">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
                             </a>
                         </li>
                     `);
