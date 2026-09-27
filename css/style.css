@@ -5888,13 +5888,13 @@ input::-ms-clear {
 @media (max-width: 991px) {
     .ast_slider_wrapper,
     .ast_hero_image_wrapper {
-        padding-top: 70px !important;
+        padding-top: 0 !important;
     }
 }
 @media (max-width: 767px) {
     .ast_slider_wrapper,
     .ast_hero_image_wrapper {
-        padding-top: 60px !important;
+        padding-top: 0 !important;
     }
 }
 
