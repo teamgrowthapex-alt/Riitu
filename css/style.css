@@ -5912,28 +5912,41 @@ input::-ms-clear {
 
 @media (max-width: 991px) {
     .ast_top_header {
-        padding: 10px 0;
+        padding: 15px 0 !important;
+        background-color: #111111 !important;
+        float: left;
+        width: 100%;
     }
     .ast_contact_details ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 8px !important;
+        float: none !important;
+        width: 100% !important;
     }
     .ast_contact_details ul li {
         margin: 0 !important;
         padding: 0 !important;
-        font-size: 14px;
+        font-size: 14px !important;
+        float: none !important;
+        display: inline-block !important;
+    }
+    .ast_contact_details ul li, .ast_contact_details ul li a {
+        color: #ffffff !important;
     }
     .ast_autho_wrapper {
-        margin-top: 10px;
+        margin-top: 15px !important;
         display: block !important;
+        float: none !important;
+        width: 100% !important;
     }
     .ast_autho_wrapper ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        float: none !important;
     }
     .ast_autho_wrapper ul li {
         padding: 0 !important;
@@ -5947,10 +5960,12 @@ input::-ms-clear {
         gap: 4px;
     }
     
-    /* Fix logo and hamburger menu alignment */
+    /* Fix logo and hamburger menu alignment and gap */
     .ast_header_bottom {
         padding: 15px 0 !important;
-        position: relative;
+        position: relative !important;
+        margin-top: 0 !important; /* Removes the white gap */
+        background-color: #1a1a1a !important; /* Matches dark theme */
     }
     .ast_logo {
         text-align: left;
