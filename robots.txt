@@ -1,4 +1,23 @@
+# MindMitra Riitu - robots.txt
+# Website: https://mindmitrariitu.com
+
 User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin-dashboard.html
+Disallow: /client-dashboard.html
+Disallow: /login.html
+Disallow: /signup.html
+Disallow: /node_modules/
+Disallow: /*.js$
+Disallow: /preview.html
+
+User-agent: Googlebot
+Allow: /
+Allow: /images/
+Crawl-delay: 1
+
+User-agent: Bingbot
 Allow: /
 
 Sitemap: https://mindmitrariitu.com/sitemap.xml
